@@ -1,4 +1,4 @@
-dist: xenial
+dist: focal
 group: edge
 stages:
 - name: Linting
@@ -8,6 +8,6 @@ jobs:
   - stage: Linting
     name: Linting app.py
     install:
-    - pip install -r requirements.txt
+    - pip3 install -r requirements.txt
     script:
     - pytest --flake8
