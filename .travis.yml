@@ -12,7 +12,7 @@ script:
 after_success: 
   - pip3 install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
+  - eval $(aws ecr get-login-password --no-include-email --region ap-south-1)
   - docker build -t helloworld .
   - docker tag helloworld:latest 681061471394.dkr.ecr.ap-south-1.amazonaws.com/helloworld:latest
-  - aws ecr get-login-password --region ap-south-1 | docker login --username raghavTinker --password-stdin 681061471394.dkr.ecr.ap-south-1.amazonaws.com
   - docker push 681061471394.dkr.ecr.ap-south-1.amazonaws.com/helloworld:latest
