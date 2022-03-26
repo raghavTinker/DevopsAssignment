@@ -2,7 +2,7 @@ dist: xenial
 group: edge
 stages:
 - name: Linting
-  if: branch = master AND type = push AND fork = false
+  if: branch = main AND type = push AND fork = false
 jobs:
   include:
   - stage: Linting
